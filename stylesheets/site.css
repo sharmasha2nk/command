@@ -327,16 +327,6 @@ h1, h2, h3, h4, h5, h6, p {
   .header h2 {
     font-weight: 400; }
 
-.header__productHunt {
-  text-align: center;
-  padding: 10px;
-  color: #FF475E;
-  font-weight: 700; }
-  .header__productHunt a {
-    color: #FF475E; }
-    .header__productHunt a:hover {
-      color: #ff2e48; }
-
 .header__callout {
   position: absolute;
   top: 10px;
