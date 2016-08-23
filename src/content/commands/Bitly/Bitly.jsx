@@ -5,27 +5,27 @@ import classnames from 'classnames'
 import { mountReactComponent } from 'content/commands/mount'
 
 import * as Types from 'content/types'
-import * as Search from 'content/components/Search'
+import * as Input from 'content/components/Input'
 import Container from 'content/components/Container'
 var validUrl = require('valid-url');
 
 const API_BASE = 'https://api-ssl.bitly.com/v3/shorten'
 
-let search = (query, options={}, s) => {
+let shorten = (longURL, options={}, s) => {
   return $.ajax({
     url: API_BASE,
     data: {
       login: 'o_781236c20b',
       apiKey: 'R_439a3dbcf1c1492eb6a99b793dac2c42',
-      longUrl: query
+      longUrl: longURL
     }
   }).then((data) => {
-    return [data.data]
+    return data.data
   })
 }
 
-let validate = (query) => {
-  return query=="" || !validUrl.isUri(query)
+let validate = (longURL) => {
+  return longURL!="" && !validUrl.isUri(longURL)
 }
 
 let BitlyResult = (props) => {
@@ -46,9 +46,9 @@ class Bitly extends React.Component {
   render() {
     return (
       <Container {...this.props}>
-        <Search.Widget
-          placeholder="Paste a link to shorten it..."
-          onSearch={search}
+        <Input.Widget
+          placeholder="Paste a link to shorten it"
+          onLinkSubmit={shorten}
           onSelect={this.onSelect.bind(this)}
           onEsc={this.props.onDone}
           ResultClass={BitlyResult}

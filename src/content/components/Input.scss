@@ -1,0 +1,128 @@
+@import "../styles/settings";
+.widget {
+    height: 70px;
+    transition: height 300ms;
+    &.isExpanded {
+        height: 300px;
+    }
+    &.hasResults .results {
+        opacity: 1;
+    }
+}
+
+.widgetWithoutList {
+    height: 70px;
+    transition: height 300ms;
+    &.isExpanded {
+        height: 100px;
+    }
+    &.hasResults .results {
+        opacity: 1;
+    }
+}
+
+input[type="input"].input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 70;
+    margin-bottom: 5px;
+    box-shadow: none;
+    border: 1px solid #ee6123;
+    transition: border-color 300ms;
+    height: 39px;
+    border-radius: 3px 0 0 3px;
+    &:focus {
+        border: 1px solid #ee6123;
+        outline: none;
+    }
+}
+
+div.inputDiv {
+    overflow: hidden;
+}
+
+input[type="button"].button {
+    float: right;
+    color: #fff;
+    height: 39px;
+    background-color: #ee6123;
+    border-radius: 0 3px 3px 0;
+    text-align: center;
+    box-shadow: 0 0 0 1px #ee6123;
+    border: none;
+    padding: 8px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    box-shadow: none;
+    border: 1px solid #ee6123;
+    transition: border-color 300ms;
+    &:focus {
+        border: 1px solid #ee6123;
+        outline: none;
+    }
+    &:hover {
+        background-color: #e45212
+    }
+}
+
+.resultsContainer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.results {
+    padding: 5px 0;
+    height: 210px;
+    opacity: 0;
+    transition: opacity 200ms, left 300ms;
+    position: relative;
+    left: 0;
+}
+
+.widget.hasColumns .results {
+    -webkit-column-count: 4;
+    -webkit-column-gap: 3px;
+}
+
+.result {
+    cursor: pointer;
+    border: 2px solid transparent;
+    display: inline-block;
+    img {
+        width: 100%;
+        display: block;
+    }
+    &:hover {
+        border-color: $color-red;
+    }
+}
+
+.noResults {
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    margin-top: 90px;
+    font-size: 16px;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination a {
+    cursor: pointer;
+    color: #ccc;
+    margin: 10px;
+    font-size: 30px;
+    -webkit-user-select: none;
+    text-decoration: none;
+    &:hover {
+        color: #aaa;
+    }
+    &.disabled {
+        color: #eee;
+        cursor: inherit;
+    }
+}
